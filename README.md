@@ -1,6 +1,7 @@
 <h3>gRPC </H3>
 
-- tem finalidade de facilitar a comunicação entre sistemas; Executa uma função num outro servidor, trafegando dados de forma binária.
+- tem finalidade de facilitar a comunicação entre sistemas; 
+- executa uma função num outro servidor, trafegando dados de forma binária.
 - ideal para microsserviços (latência entre os acessos de cada sistemas, tempo de resposta muito alto);
 - geração das bibliotecas de forma automática - stubs (trechos de código que possibilita a comunicação de uma conta com outra que fala a mesma língua, cria uma camada de extração/abstração para não ter que lidar com complexidades)
 - RPC: remote procedure call
