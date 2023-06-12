@@ -19,5 +19,7 @@ arquivos binários < JSON, assim gasta menos recursos de rede.
 - HTTP2: dados trafegados são binários e não texto(JSON) como no HTTP 1.1
 
 
-gerar stub/biblioteca (protoc compilador gere e utilize os arquivos): protoc --proto_path=proto proto/*.proto --go_out=plugins=grpc:pb
+-gerar stub/biblioteca (protoc compilador gere e utilize os arquivos): protoc --proto_path=proto proto/*.proto --go_out=plugins=grpc:pb
+- go mod init
+- evans -r -p 50055
 
