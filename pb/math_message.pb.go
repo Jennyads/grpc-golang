@@ -149,16 +149,96 @@ func (m *NewSumResponse) GetResult() float32 {
 	return 0
 }
 
+type FibonacciResponse struct {
+	Result               int32    `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *FibonacciResponse) Reset()         { *m = FibonacciResponse{} }
+func (m *FibonacciResponse) String() string { return proto.CompactTextString(m) }
+func (*FibonacciResponse) ProtoMessage()    {}
+func (*FibonacciResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_b4b040cf9c3836a8, []int{3}
+}
+
+func (m *FibonacciResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_FibonacciResponse.Unmarshal(m, b)
+}
+func (m *FibonacciResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_FibonacciResponse.Marshal(b, m, deterministic)
+}
+func (m *FibonacciResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_FibonacciResponse.Merge(m, src)
+}
+func (m *FibonacciResponse) XXX_Size() int {
+	return xxx_messageInfo_FibonacciResponse.Size(m)
+}
+func (m *FibonacciResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_FibonacciResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_FibonacciResponse proto.InternalMessageInfo
+
+func (m *FibonacciResponse) GetResult() int32 {
+	if m != nil {
+		return m.Result
+	}
+	return 0
+}
+
+type FibonacciRequest struct {
+	N                    int32    `protobuf:"varint,1,opt,name=n,proto3" json:"n,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *FibonacciRequest) Reset()         { *m = FibonacciRequest{} }
+func (m *FibonacciRequest) String() string { return proto.CompactTextString(m) }
+func (*FibonacciRequest) ProtoMessage()    {}
+func (*FibonacciRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_b4b040cf9c3836a8, []int{4}
+}
+
+func (m *FibonacciRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_FibonacciRequest.Unmarshal(m, b)
+}
+func (m *FibonacciRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_FibonacciRequest.Marshal(b, m, deterministic)
+}
+func (m *FibonacciRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_FibonacciRequest.Merge(m, src)
+}
+func (m *FibonacciRequest) XXX_Size() int {
+	return xxx_messageInfo_FibonacciRequest.Size(m)
+}
+func (m *FibonacciRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_FibonacciRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_FibonacciRequest proto.InternalMessageInfo
+
+func (m *FibonacciRequest) GetN() int32 {
+	if m != nil {
+		return m.N
+	}
+	return 0
+}
+
 func init() {
 	proto.RegisterType((*Sum)(nil), "fullcycle.Sum")
 	proto.RegisterType((*NewSumRequest)(nil), "fullcycle.NewSumRequest")
 	proto.RegisterType((*NewSumResponse)(nil), "fullcycle.NewSumResponse")
+	proto.RegisterType((*FibonacciResponse)(nil), "fullcycle.FibonacciResponse")
+	proto.RegisterType((*FibonacciRequest)(nil), "fullcycle.FibonacciRequest")
 }
 
 func init() { proto.RegisterFile("math_message.proto", fileDescriptor_b4b040cf9c3836a8) }
 
 var fileDescriptor_b4b040cf9c3836a8 = []byte{
-	// 191 bytes of a gzipped FileDescriptorProto
+	// 247 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0xca, 0x4d, 0x2c, 0xc9,
 	0x88, 0xcf, 0x4d, 0x2d, 0x2e, 0x4e, 0x4c, 0x4f, 0xd5, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0xe2,
 	0x4c, 0x2b, 0xcd, 0xc9, 0x49, 0xae, 0x4c, 0xce, 0x49, 0x55, 0x52, 0xe4, 0x62, 0x0e, 0x2e, 0xcd,
@@ -167,10 +247,14 @@ var fileDescriptor_b4b040cf9c3836a8 = []byte{
 	0xa0, 0xd4, 0xc2, 0xd2, 0xd4, 0xe2, 0x12, 0x21, 0x05, 0x2e, 0xe6, 0xe2, 0xd2, 0x5c, 0xb0, 0x72,
 	0x6e, 0x23, 0x3e, 0x3d, 0xb8, 0x61, 0x7a, 0x20, 0x35, 0x20, 0x29, 0x25, 0x0d, 0x2e, 0x3e, 0x98,
 	0x96, 0xe2, 0x82, 0xfc, 0xbc, 0xe2, 0x54, 0x21, 0x31, 0x2e, 0xb6, 0xa2, 0xd4, 0xe2, 0xd2, 0x9c,
-	0x12, 0xa8, 0x2d, 0x50, 0x9e, 0x91, 0x37, 0x17, 0xb7, 0x6f, 0x62, 0x49, 0x46, 0x70, 0x6a, 0x51,
-	0x59, 0x66, 0x72, 0xaa, 0x90, 0x0d, 0xc4, 0x39, 0x12, 0x48, 0x86, 0xa2, 0xd8, 0x2d, 0x25, 0x89,
-	0x45, 0x06, 0x62, 0x85, 0x12, 0x83, 0x13, 0x4b, 0x14, 0x53, 0x41, 0x52, 0x12, 0x1b, 0xd8, 0x93,
-	0xc6, 0x80, 0x00, 0x00, 0x00, 0xff, 0xff, 0x62, 0x35, 0x34, 0xac, 0xfa, 0x00, 0x00, 0x00,
+	0x12, 0xa8, 0x2d, 0x50, 0x9e, 0x92, 0x36, 0x97, 0xa0, 0x5b, 0x66, 0x52, 0x7e, 0x5e, 0x62, 0x72,
+	0x72, 0x26, 0x0e, 0xc5, 0xac, 0x70, 0xc5, 0x0a, 0x5c, 0x02, 0x48, 0x8a, 0x21, 0x8e, 0xe1, 0xe1,
+	0x62, 0xcc, 0x83, 0x2a, 0x63, 0xcc, 0x33, 0x9a, 0xce, 0xc8, 0xc5, 0xed, 0x9b, 0x58, 0x92, 0x11,
+	0x9c, 0x5a, 0x54, 0x96, 0x99, 0x9c, 0x2a, 0x64, 0x03, 0xf1, 0x9e, 0x04, 0x92, 0x23, 0x51, 0xfc,
+	0x22, 0x25, 0x89, 0x45, 0x06, 0xe2, 0x0a, 0x25, 0x06, 0x21, 0x2f, 0x2e, 0x4e, 0xb8, 0x7d, 0x42,
+	0xd2, 0x48, 0x2a, 0xd1, 0x5d, 0x21, 0x25, 0x83, 0x5d, 0x12, 0x66, 0x92, 0x01, 0xa3, 0x13, 0x4b,
+	0x14, 0x53, 0x41, 0x52, 0x12, 0x1b, 0x38, 0x02, 0x8c, 0x01, 0x01, 0x00, 0x00, 0xff, 0xff, 0x08,
+	0xee, 0xcc, 0xe8, 0x96, 0x01, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -186,6 +270,7 @@ const _ = grpc.SupportPackageIsVersion4
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type MathServiceClient interface {
 	Sum(ctx context.Context, in *NewSumRequest, opts ...grpc.CallOption) (*NewSumResponse, error)
+	Fibonacci(ctx context.Context, in *FibonacciRequest, opts ...grpc.CallOption) (MathService_FibonacciClient, error)
 }
 
 type mathServiceClient struct {
@@ -205,9 +290,42 @@ func (c *mathServiceClient) Sum(ctx context.Context, in *NewSumRequest, opts ...
 	return out, nil
 }
 
+func (c *mathServiceClient) Fibonacci(ctx context.Context, in *FibonacciRequest, opts ...grpc.CallOption) (MathService_FibonacciClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_MathService_serviceDesc.Streams[0], "/fullcycle.MathService/Fibonacci", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &mathServiceFibonacciClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+type MathService_FibonacciClient interface {
+	Recv() (*FibonacciResponse, error)
+	grpc.ClientStream
+}
+
+type mathServiceFibonacciClient struct {
+	grpc.ClientStream
+}
+
+func (x *mathServiceFibonacciClient) Recv() (*FibonacciResponse, error) {
+	m := new(FibonacciResponse)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 // MathServiceServer is the server API for MathService service.
 type MathServiceServer interface {
 	Sum(context.Context, *NewSumRequest) (*NewSumResponse, error)
+	Fibonacci(*FibonacciRequest, MathService_FibonacciServer) error
 }
 
 // UnimplementedMathServiceServer can be embedded to have forward compatible implementations.
@@ -216,6 +334,9 @@ type UnimplementedMathServiceServer struct {
 
 func (*UnimplementedMathServiceServer) Sum(ctx context.Context, req *NewSumRequest) (*NewSumResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Sum not implemented")
+}
+func (*UnimplementedMathServiceServer) Fibonacci(req *FibonacciRequest, srv MathService_FibonacciServer) error {
+	return status.Errorf(codes.Unimplemented, "method Fibonacci not implemented")
 }
 
 func RegisterMathServiceServer(s *grpc.Server, srv MathServiceServer) {
@@ -240,6 +361,27 @@ func _MathService_Sum_Handler(srv interface{}, ctx context.Context, dec func(int
 	return interceptor(ctx, in, info, handler)
 }
 
+func _MathService_Fibonacci_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(FibonacciRequest)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(MathServiceServer).Fibonacci(m, &mathServiceFibonacciServer{stream})
+}
+
+type MathService_FibonacciServer interface {
+	Send(*FibonacciResponse) error
+	grpc.ServerStream
+}
+
+type mathServiceFibonacciServer struct {
+	grpc.ServerStream
+}
+
+func (x *mathServiceFibonacciServer) Send(m *FibonacciResponse) error {
+	return x.ServerStream.SendMsg(m)
+}
+
 var _MathService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "fullcycle.MathService",
 	HandlerType: (*MathServiceServer)(nil),
@@ -249,6 +391,12 @@ var _MathService_serviceDesc = grpc.ServiceDesc{
 			Handler:    _MathService_Sum_Handler,
 		},
 	},
-	Streams:  []grpc.StreamDesc{},
+	Streams: []grpc.StreamDesc{
+		{
+			StreamName:    "Fibonacci",
+			Handler:       _MathService_Fibonacci_Handler,
+			ServerStreams: true,
+		},
+	},
 	Metadata: "math_message.proto",
 }

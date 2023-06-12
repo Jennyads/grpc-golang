@@ -18,7 +18,16 @@ message  NewSumResponse {
   float result = 1;
 }
 
+message FibonacciResponse{
+  int32 result = 1;
+}
+
+message FibonacciRequest{
+  int32 n = 1;
+}
+
 service MathService {
   rpc Sum (NewSumRequest) returns (NewSumResponse) {};
+  rpc Fibonacci(FibonacciRequest) returns (stream FibonacciResponse){};
 
 }

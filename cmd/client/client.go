@@ -4,6 +4,7 @@ import (
 	"context"
 	"google.golang.org/grpc"
 	"grpcmaratona/pb"
+	"io"
 	"log"
 )
 
@@ -16,9 +17,31 @@ func main() {
 
 	defer connection.Close()
 
-	Sum(10, 55, err, client)
-}
+	go Sum(10, 55, err, client)
+	FibonacciGrpc(err, client)
 
+}
+func FibonacciGrpc(err error, client pb.MathServiceClient) {
+	request := &pb.FibonacciRequest{
+		N: 10,
+	}
+	responseStream, err := client.Fibonacci(context.Background(), request)
+	if err != nil {
+		log.Fatalf("Error during the request: %v", err)
+	}
+
+	for {
+		stream, err := responseStream.Recv()
+		if err == io.EOF {
+			break
+		}
+		if err != nil {
+			log.Fatalf("Error receiving streaming: %v", err)
+		}
+
+		log.Printf("Fibonacci: %v", stream.GetResult())
+	}
+}
 func Sum(a float32, b float32, err error, client pb.MathServiceClient) {
 
 	request := &pb.NewSumRequest{
