@@ -22,4 +22,6 @@ arquivos binários < JSON, assim gasta menos recursos de rede.
 -gerar stub/biblioteca (protoc compilador gere e utilize os arquivos): protoc --proto_path=proto proto/*.proto --go_out=plugins=grpc:pb
 - go mod init
 - evans -r -p 50055
+- go run cmd/server/server.go
+- go run cmd/client/client.go
 
